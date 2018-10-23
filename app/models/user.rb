@@ -1,8 +1,24 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint(8)        not null, primary key
+#  username               :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  role                   :string           not null
+#
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :rememberable
-  validates :username, presence: :true, uniqueness: { case_sensitive: false }
+  devise :database_authenticatable, :rememberable
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :role, :inclusion => {:in => ["accounting", "logistics"]}
 
    attr_writer :login
 
