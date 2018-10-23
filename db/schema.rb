@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_175858) do
+ActiveRecord::Schema.define(version: 2018_10_23_190124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.datetime "ship_date", null: false
+    t.integer "invoice_number"
+    t.integer "route_number", null: false
+    t.string "customer_id", null: false
+    t.string "customer", null: false
+    t.integer "amount_owed"
+    t.integer "extra"
+    t.integer "amount_received"
+    t.integer "ammount_credit"
+    t.integer "received_as_cash_or_check"
+    t.string "logistics_agent_initials"
+    t.string "reason_code"
+    t.string "reason_details"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
