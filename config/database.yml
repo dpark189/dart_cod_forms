@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: cod_forms_production
-  username: cod_forms
-  password: <%= ENV['COD_FORMS_DATABASE_PASSWORD'] %>
+  adapter: sqlserver
+  database: e21PH #placeholder
+  dataserver: sqlserver01\PH #placeholder
+  username: user #placeholder
+  password: pass #placeholder
