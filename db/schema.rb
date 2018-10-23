@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_164440) do
+ActiveRecord::Schema.define(version: 2018_10_23_175858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accountings", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -23,20 +23,9 @@ ActiveRecord::Schema.define(version: 2018_10_23_164440) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reset_password_token"], name: "index_accountings_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_accountings_on_username", unique: true
-  end
-
-  create_table "logistics", force: :cascade do |t|
-    t.string "username", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["reset_password_token"], name: "index_logistics_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_logistics_on_username", unique: true
+    t.string "role", null: false
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
