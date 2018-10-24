@@ -1,0 +1,49 @@
+
+  <form class="" action="index.html" method="PATCH">
+    <td><%= account.ship_date.strftime("%m/%d/%Y") %></td>
+    <td><%= account.invoice_number %></td>
+    <td><%= account.route_number %></td>
+    <td><%= account.customer_id %></td>
+    <td><%= account.customer %></td>
+    <td><%= account.amount_owed %></td>
+    <td><%= account.extra %></td>
+
+    <%# amount_received %>
+    <td>
+      <input class="amount_received" type="number" name="account[amount_received]" value="<%= account.amount_received ? account.amount_received : 0 %>">
+    </td>
+
+    <%# amount_credit %>
+    <td>
+      <input class="amount_credit" type="number" name="account[amount_credit]" value="<%= account.amount_credit || 0 %>">
+    </td>
+
+    <%# received_as_cash_or_check %>
+    <td>
+      <input class="received_as_cash_or_check" type="number" name="account[received_as_cash_or_check]" value="<%= account.received_as_cash_or_check || 0 %>">
+    </td>
+
+    <%# logistics_agent_initials %>
+    <td>
+      <input class="logistics_agent_initials" type="text" name="account[logistics_agent_initials]" value="<%= account.logistics_agent_initials || ""  %>">
+    </td>
+
+    <%# reason_code %>
+    <td>
+      <select class="reason_code" name="account[reason_code]">
+        <option value="#">option1</option>
+        <option value="#">option2</option>
+        <option value="#">option3</option>
+      </select>
+    </td>
+
+    <%# reason_details %>
+    <td>
+      <input class="reason_details" type="text" name="account[reason_details]" value="<%= account.reason_details || "" %>">
+    </td>
+
+    <%# completed %>
+    <td>
+      <input class="completed" type="checkbox" name="account[completed]" value="true">
+    </td>
+  </form>

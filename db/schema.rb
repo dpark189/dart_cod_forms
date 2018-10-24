@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_212049) do
+ActiveRecord::Schema.define(version: 2018_10_24_202136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_212049) do
     t.integer "amount_owed"
     t.integer "extra"
     t.integer "amount_received"
-    t.integer "ammount_credit"
+    t.integer "amount_credit"
     t.integer "received_as_cash_or_check"
     t.string "logistics_agent_initials"
     t.string "reason_code"

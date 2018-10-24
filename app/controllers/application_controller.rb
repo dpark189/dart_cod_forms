@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :is_datetime
+
+  def is_datetime(d)
+    d.methods.include? :strftime
+  end
+
   protected
 
   def configure_permitted_parameters

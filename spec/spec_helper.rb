@@ -96,8 +96,9 @@ RSpec.configure do |config|
 end
 
 def create_test_account
+  date = Date.today
   let(:account) { Account.create!(
-    ship_date: Date.today.to_date,
+    ship_date: date,
     route_number: 1,
     customer_id: "CN",
     customer: "CustomerName",

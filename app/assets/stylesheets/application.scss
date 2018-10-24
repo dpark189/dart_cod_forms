@@ -19,4 +19,29 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: sans-serif;
+  max-width: 100%;
 }
+
+section.table_section {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+table {
+  width: 100% !important;
+  overflow-x: auto;
+}
+
+table, th, td {
+  word-wrap: normal;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+td {
+  overflow-x: auto;
+  align-items: center;
+  text-align: center;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
