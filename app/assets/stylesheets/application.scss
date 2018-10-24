@@ -22,15 +22,27 @@ body {
   max-width: 100%;
 }
 
-section.table_section {
+section#table_section {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
   width: 100%;
+  padding: 10px 0;
+  background-color: #909293;
+}
+
+.table_div {
+  width: 95%;
   overflow-x: scroll;
-  padding: 10px;
+  margin: 0;
+  box-shadow: 10px 10px 5px grey;
+
 }
 
 table {
   width: 100% !important;
   overflow-x: auto;
+  background-color: #c1c5cc;
 }
 
 table, th, td {
@@ -45,6 +57,10 @@ td {
   align-items: center;
   text-align: center;
   padding: 0 4px;
+}
+
+tr {
+  background-color: white;
 }
 
 tr:nth-child(even) {
@@ -70,6 +86,8 @@ select {
   background-color: inherit;
   align-self: center;
 }
+
+
 
 textarea.reason_details:focus {
   background:#ccc;

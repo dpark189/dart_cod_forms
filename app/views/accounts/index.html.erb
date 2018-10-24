@@ -1,16 +1,18 @@
 <h1>INDEX</h1>
-<section class="table_section">
-  <table>
-    <tr>
-      <% @accounts.first.attributes.keys.each do |key| %>
-      <% next if @secondary_attr.include?(key) %>
-      <th><%= key.titleize %></th>
+<section id="table_section">
+  <div class="table_div">
+    <table>
+      <tr>
+        <% @accounts.first.attributes.keys.each do |key| %>
+        <% next if @secondary_attr.include?(key) %>
+        <th><%= key.titleize %></th>
+        <% end %>
+      </tr>
+      <% @accounts.each do |account| %>
+      <tr>
+        <%= render "row_form.html.erb", account: account %>
+      </tr>
       <% end %>
-    </tr>
-    <% @accounts.each do |account| %>
-    <tr>
-      <%= render "row_form.html.erb", account: account %>
-    </tr>
-    <% end %>
-  </table>
+    </table>
+  </div>
 </section>
