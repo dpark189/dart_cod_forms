@@ -41,7 +41,12 @@
 
     <%# reason_details %>
     <td>
-      <input class="reason_details" type="text" name="account[reason_details]" value="<%= account.reason_details || "" %>">
+      <textarea
+      class="reason_details"
+      name="account[reason_details]"
+      cols="20"
+      rows="1"
+      value="<%= account.reason_details || "" %>"></textarea>
     </td>
 
     <%# completed %>
@@ -53,3 +58,12 @@
       <input type="submit" value="Submit">
     </td>
   </form>
+
+  <script type="text/javascript">
+    $('textarea.reason_details').focus(function () {
+      $(this).attr('rows', '4');
+    });
+    $('textarea.reason_details').focusout(function () {
+      $(this).attr('rows', '1');
+    });
+  </script>

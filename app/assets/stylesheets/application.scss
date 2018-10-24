@@ -36,6 +36,7 @@ table {
 table, th, td {
   word-wrap: normal;
   border: 1px solid black;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
@@ -43,6 +44,7 @@ td {
   overflow-x: auto;
   align-items: center;
   text-align: center;
+  padding: 0 4px;
 }
 
 tr:nth-child(even) {
@@ -52,4 +54,25 @@ tr:nth-child(even) {
 input {
   background-color: inherit;
   text-align: center;
+}
+
+input[type=text], input[type=number] {
+  border: none;
+}
+
+select {
+  border: none;
+}
+
+.reason_details {
+  margin-top: 5px;
+  border: none;
+  background-color: inherit;
+  align-self: center;
+}
+
+textarea.reason_details:focus {
+  background:#ccc;
+  color: #6a6f75;
+  outline: none;
 }
