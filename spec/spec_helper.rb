@@ -94,3 +94,14 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def create_test_account
+  let(:account) { Account.create!(
+    ship_date: Date.today.to_date,
+    route_number: 1,
+    customer_id: "CN",
+    customer: "CustomerName",
+    amount_owed: 1000,
+    completed: false
+  ) }
+end

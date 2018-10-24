@@ -21,6 +21,11 @@
 #
 
 class Account < ApplicationRecord
-  validates :ship_date, :route_number, :customer_id, :customer, :completed, presence: true
+  before_save :default_completed
+  validates :ship_date, :route_number, :customer_id, :customer, presence: true
   validates :logistics_agent_initials, presence: true, if: :amount_received, length: {is: 2}
+
+  def default_completed
+    self.completed ||= false
+  end
 end
