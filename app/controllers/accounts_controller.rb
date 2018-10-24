@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   def index
-    @accounts = Account.all
+    @accounts = Account.where(completed: true)
   end
 
   def update

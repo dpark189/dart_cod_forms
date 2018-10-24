@@ -17,9 +17,10 @@
 #  reason_code               :string
 #  reason_details            :string
 #  credit                    :integer
+#  completed                 :boolean
 #
 
 class Account < ApplicationRecord
-  validates :ship_date, :route_number, :customer_id, :customer, presence: true
+  validates :ship_date, :route_number, :customer_id, :customer, :completed, presence: true
   validates :logistics_agent_initials, presence: true, if: :amount_received, length: {is: 2}
 end
