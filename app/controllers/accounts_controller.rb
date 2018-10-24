@@ -8,7 +8,15 @@ class AccountsController < ApplicationController
   end
 
   def update
-
+    @account = Account.find(params[:id])
+    param_copy = account_params
+    param_copy[:completed] = account_params[:completed] == "true" ? true : false
+    if @account.update_attributes(param_copy)
+      redirect_to accounts_path
+    else
+      flash.now[:errors] = @account.errors.full_messages
+      render :index
+    end
   end
 
   private
