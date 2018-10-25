@@ -16,9 +16,11 @@
     </td>
 
     <%# amount_credit %>
-    <td>
-      <input class="amount_credit" type="number" name="account[amount_credit]" value="<%= account.amount_credit || 0 %>">
-    </td>
+    <% if current_user.role == "accounting" %>
+      <td>
+        <input class="amount_credit" type="number" name="account[amount_credit]" value="<%= account.amount_credit || 0 %>">
+      </td>
+    <% end %>
 
     <%# received_as_cash_or_check %>
     <td>
