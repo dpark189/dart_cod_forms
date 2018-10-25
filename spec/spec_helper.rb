@@ -95,6 +95,18 @@ RSpec.configure do |config|
 =end
 end
 
+def create_accounting_and_logistics_users
+  let!(:a_user) { User.create!(username: "a_user", password: "password", role: "accounting") }
+  let!(:l_user) { User.create!(username: "l_user", password: "password", role: "logistics") }
+end
+
+def login_user(user)
+  visit root_path
+  fill_in "Username", with: user.username
+  fill_in "Password", with: user.password
+  click_button "Log in"
+end
+
 def create_test_account
   date = Date.today
   let(:account) { Account.create!(

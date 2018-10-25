@@ -71,17 +71,17 @@ tr:nth-child(even) {
 }
 
 
-input {
+.account_form > input {
   background-color: inherit;
   text-align: center;
 }
 
-input[type=text], input[type=number] {
+.account_form > input[type=text], input[type=number] {
   border: none;
   width: 85px;
 }
 
-input[type=number]{
+.account_form > input[type=number]{
   padding-left: 10px;
 }
 
