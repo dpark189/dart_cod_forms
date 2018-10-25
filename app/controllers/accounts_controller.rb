@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   def index
     @completed_filter = params[:completed] == "all" ? nil : params[:completed] == "false" || params[:completed] == nil ? false : true
     puts "completed: #{@completed_filter}"
-    @accounts = @completed_filter == nil ? Account.all : Account.where(completed: @completed_filter)
+    @accounts = @completed_filter == nil ? Account.where(ship_date: params[:date][:date]) : Account.where(ship_date: params[:date][:date]).where(completed: @completed_filter)
     @accounts = @accounts.sort_by{|account| account.ship_date}
     @secondary_attr = [
       "credit",

@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(username: "a_user", password: "password", role: "accounting")
-User.create!(username: "l_user", password: "password", role: "logistics")
+# User.create!(username: "a_user", password: "password", role: "accounting")
+# User.create!(username: "l_user", password: "password", role: "logistics")
 
 def create_account(num)
   received = rand(1..2000)
@@ -25,7 +25,7 @@ def create_account(num)
     logistics_agent_initials: "AD"
   )
 end
-
+create_account(11)
 # 10.times do |i|
 #   create_account(i)
 # end

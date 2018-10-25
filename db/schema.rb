@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_202136) do
+ActiveRecord::Schema.define(version: 2018_10_25_155637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.datetime "ship_date", null: false
+    t.date "ship_date", null: false
     t.integer "invoice_number"
     t.integer "route_number", null: false
     t.string "customer_id", null: false
