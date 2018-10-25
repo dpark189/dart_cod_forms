@@ -51,7 +51,11 @@
 
     <%# completed %>
     <td>
-      <input class="completed" type="checkbox" name="account[completed]" value="true">
+      <% if !account.completed %>
+        <input class="completed" type="checkbox" name="account[completed]" value="true" >
+      <% else %>
+        <input class="completed" type="checkbox" name="account[completed]" value="true" checked="checked" >
+      <% end %>
     </td>
 
     <td>

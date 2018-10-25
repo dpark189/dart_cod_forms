@@ -40,6 +40,7 @@ section#table_section {
 }
 
 table {
+  font-size: 13px;
   width: 100% !important;
   overflow-x: auto;
   background-color: #c1c5cc;
@@ -47,6 +48,7 @@ table {
 }
 
 table, th, td {
+  padding: 0 3px;
   word-wrap: normal;
   border: 1px solid black;
   border-radius: 5px;
