@@ -14,6 +14,15 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.after(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -131,7 +140,8 @@ def create_test_account1
     extra: 10,
     amount_received: received,
     received_as_cash_or_check: received,
-    logistics_agent_initials: "AD"
+    logistics_agent_initials: "AD",
+    location: "NJ"
   )
 end
 
@@ -147,14 +157,18 @@ def create_test_account2
     extra: 10,
     amount_received: received,
     received_as_cash_or_check: received,
-    logistics_agent_initials: "AD"
+    logistics_agent_initials: "AD",
+    location: "NJ"
   )
+end
+
+def create_accounts_different_dates
+  create_test_account1
+  create_test_account2
 end
 
 def visit_accounts_index_for_date(date)
   visit '/'
-  create_test_account1
-  create_test_account2
   fill_in "Select Shipping Date", with: "#{Date.strptime(date, "%m/%d/%Y")}"
   click_button "submit"
 end
