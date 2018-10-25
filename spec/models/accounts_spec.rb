@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Account, :type => :model do
 
-  describe "Account validations" do
+  describe "Validations" do
     create_test_account
 
     it "should be valid when amount_received exists and initials are 2 letters" do
@@ -30,7 +30,7 @@ RSpec.describe Account, :type => :model do
     it "initializes with completed as false" do
       expect(account.completed).to be(false)
     end
-    
+
   end
 
 

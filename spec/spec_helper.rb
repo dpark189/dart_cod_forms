@@ -101,7 +101,7 @@ def create_accounting_and_logistics_users
 end
 
 def login_user(user)
-  visit root_path
+  visit "/users/sign_in"
   fill_in "Username", with: user.username
   fill_in "Password", with: user.password
   click_button "Log in"
@@ -117,4 +117,44 @@ def create_test_account
     amount_owed: 1000,
     completed: false
   ) }
+end
+
+def create_test_account1
+  received = rand(1..2000)
+  date = Date.strptime("10/24/2018", "%m/%d/%Y")
+  Account.create!(
+    ship_date: date,
+    route_number: rand(1..10),
+    customer_id: "CN",
+    customer: "CustomerName",
+    amount_owed: rand(1..2000),
+    extra: 10,
+    amount_received: received,
+    received_as_cash_or_check: received,
+    logistics_agent_initials: "AD"
+  )
+end
+
+def create_test_account2
+  received = rand(1..2000)
+  date = Date.strptime("10/25/2018", "%m/%d/%Y")
+  Account.create!(
+    ship_date: date,
+    route_number: rand(1..10),
+    customer_id: "CN",
+    customer: "CustomerName",
+    amount_owed: rand(1..2000),
+    extra: 10,
+    amount_received: received,
+    received_as_cash_or_check: received,
+    logistics_agent_initials: "AD"
+  )
+end
+
+def visit_accounts_index_for_date(date)
+  visit '/'
+  create_test_account1
+  create_test_account2
+  fill_in "Select Shipping Date", with: "#{Date.strptime(date, "%m/%d/%Y")}"
+  click_button "submit"
 end

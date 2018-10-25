@@ -1,22 +1,36 @@
 require 'rails_helper'
 
-feature 'Creating a task' do
+feature 'Navigating to the index page' do
   create_accounting_and_logistics_users
+
   scenario 'requires sign in' do
-    visit root_path
+    visit "/"
     expect(page).to have_content('Log in')
   end
 
   scenario 'Successfully signing in' do
-    visit root_path
+    visit "/"
     login_user(a_user)
-    expect(page).to have_content('Accounts')
+    expect(page).to have_content('Select Shipping Date')
   end
 
   scenario 'Unseccessfully signing in' do
-    visit root_path
+    visit "/"
     click_button "Log in"
     expect(page).to have_content('Invalid Login or password')
   end
 
+  scenario "Enter date after successful log in as logistics" do
+    date = "10/25/2018"
+    login_user(l_user)
+    visit_accounts_index_for_date(date)
+    expect(page).to_not have_content("Amount Credit")
+  end
+
+  scenario "Enter date after successful log in as accounting" do
+    date = "10/25/2018"
+    login_user(a_user)
+    visit_accounts_index_for_date(date)
+    expect(page).to have_content("Amount Credit")
+  end
 end

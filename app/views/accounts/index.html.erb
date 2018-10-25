@@ -1,6 +1,9 @@
 <h1>Accounts</h1>
 
 <section id="table_section">
+  <% if !@accounts %>
+    <span>No Accounts to show for the date given</span>
+  <% end %>
   <div class="table_div">
     <table>
       <tr>
