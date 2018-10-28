@@ -14,6 +14,9 @@ class AccountsController < ApplicationController
   def update
     @account = Account.find(params[:id])
     param_copy = account_params
+    if param_copy[:logistics_agent_initials]
+      param_copy[:logistics_agent_initials] = param_copy[:logistics_agent_initials].downcase
+    end
     param_copy[:completed] = account_params[:completed] == "true" ? true : false
     if @account.update_attributes(param_copy)
       redirect_to controller: 'accounts', action: 'index', date: { date: params[:account_attr][:date] }, location: { location: params[:account_attr][:location] }
