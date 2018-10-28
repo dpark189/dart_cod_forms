@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
     if date_params[:date] != "" && date_params[:location] != ""
       redirect_to controller: 'accounts', action: 'index', account_attr: date_params
     else
-      flash[:errors] = "Please fill in both fields with valid inputs"
+      flash[:alert] = "Please fill in both fields with valid inputs"
       redirect_to controller: 'static_pages', action: "root"
     end
   end

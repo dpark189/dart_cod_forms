@@ -40,13 +40,7 @@
       </section>
     </nav>
     <%= yield %>
-    <ul>
-    <% flash.each do |type, error| %>
-        <li>
-          <%= error %>
-        </li>
-    <% end %>
-    </ul>
+    <% debugger %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>

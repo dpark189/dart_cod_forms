@@ -21,7 +21,7 @@ class AccountsController < ApplicationController
     if @account.update_attributes(param_copy)
       redirect_to controller: 'accounts', action: 'index', date: { date: params[:account_attr][:date] }, location: { location: params[:account_attr][:location] }
     else
-      flash.now[:errors] = @account.errors.full_messages
+      flash.now[:alert] = @account.errors.full_messages
       render :index
     end
   end
