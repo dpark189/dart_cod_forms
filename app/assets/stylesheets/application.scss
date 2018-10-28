@@ -14,6 +14,7 @@
  *= require_self
  */
 body {
+  margin-top: 65px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -21,6 +22,10 @@ body {
   font-family: sans-serif;
   max-width: 100%;
   background: #f9f9f9;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .flex {
