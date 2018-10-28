@@ -1,0 +1,93 @@
+
+section#table_section {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #909293;
+}
+
+.table_div {
+  width: 95%;
+  overflow-x: scroll;
+  margin: 0;
+  box-shadow: 10px 10px 5px grey;
+
+}
+
+table {
+  font-size: 13px;
+  width: 100% !important;
+  overflow-x: auto;
+  background-color: #c1c5cc;
+  table-layout: auto;
+}
+
+table, th, td {
+  padding: 0 3px;
+  word-wrap: normal;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+td {
+  overflow-x: auto;
+  align-items: center;
+  text-align: center;
+  padding: 0 4px;
+}
+
+tr {
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.account_form > input {
+  background-color: inherit;
+  text-align: center;
+}
+
+input[type=text], input[type=number] {
+  border: none;
+  text-align: center;
+  width: 85px;
+}
+
+td.submit {
+  padding: 0;
+  background: inherit;
+  border: none;
+  background-color: #c1c5cc;
+}
+
+input[type=submit] {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.account_form > input[type=number]{
+  padding-left: 10px;
+}
+
+select {
+  border: none;
+}
+
+.reason_details {
+  margin-top: 5px;
+  border: none;
+  background-color: inherit;
+  align-self: center;
+}
+
+textarea.reason_details:focus {
+  background:#ccc;
+  color: #6a6f75;
+  outline: none;
+}
