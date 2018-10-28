@@ -124,7 +124,8 @@ def create_test_account
     customer_id: "CN",
     customer: "CustomerName",
     amount_owed: 1000,
-    completed: false
+    completed: false,
+    location: "nj"
   ) }
 end
 
@@ -141,7 +142,7 @@ def create_test_account1
     amount_received: received,
     received_as_cash_or_check: received,
     logistics_agent_initials: "AD",
-    location: "NJ"
+    location: "nj"
   )
 end
 
@@ -158,7 +159,7 @@ def create_test_account2
     amount_received: received,
     received_as_cash_or_check: received,
     logistics_agent_initials: "AD",
-    location: "NJ"
+    location: "nj"
   )
 end
 
@@ -167,8 +168,9 @@ def create_accounts_different_dates
   create_test_account2
 end
 
-def visit_accounts_index_for_date(date)
+def visit_accounts_index_for_date(date, location)
   visit '/'
   fill_in "Select Shipping Date", with: "#{Date.strptime(date, "%m/%d/%Y")}"
+  fill_in "Enter Call Center (2 characters)", with: location
   click_button "submit"
 end

@@ -25,7 +25,7 @@ feature 'Navigating to the index page' do
     login_user(l_user)
     create_accounts_different_dates
     Account.last.update_attributes(completed: true)
-    visit_accounts_index_for_date(date)
+    visit_accounts_index_for_date(date, 'nj')
     expect(page).to_not have_content("Amount Credit")
   end
 
@@ -34,7 +34,7 @@ feature 'Navigating to the index page' do
     login_user(a_user)
     create_accounts_different_dates
     Account.last.update_attributes(completed: true)
-    visit_accounts_index_for_date(date)
+    visit_accounts_index_for_date(date, 'nj')
     expect(page).to have_content("Amount Credit")
   end
 end
