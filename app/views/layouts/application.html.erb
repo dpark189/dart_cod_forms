@@ -12,10 +12,33 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <span><%= current_user.username %></span>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete ) %>
-    <% end %>
+    <nav class="top_bar flex">
+      <section class="right-nav nav flex">
+        <span>COD Form Input</span>
+      </section>
+      <section class="mid-nav nav">
+        <% if user_signed_in? %>
+          <div class="flex user_disp">
+            <i class="fas fa-user-circle"></i>
+            <span class="username flex">
+              <%= current_user.username %>
+            </span>
+          </div>
+        <% end %>
+      </section>
+      <section class="left-nav nav flex">
+        <ul class="flex">
+          <li class="flex hover">
+            <a href="/">Enter New Date/Location</a>
+          </li>
+          <% if user_signed_in? %>
+          <li class="flex">
+            <%= link_to('Logout', destroy_user_session_path, method: :delete ) %>
+          </li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
     <%= yield %>
     <ul>
     <% flash.each do |type, error| %>
