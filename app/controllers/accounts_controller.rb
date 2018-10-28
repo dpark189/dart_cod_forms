@@ -19,7 +19,7 @@ class AccountsController < ApplicationController
     end
     param_copy[:completed] = account_params[:completed] == "true" ? true : false
     if @account.update_attributes(param_copy)
-      redirect_to controller: 'accounts', action: 'index', date: { date: params[:account_attr][:date] }, location: { location: params[:account_attr][:location] }
+      redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
     else
       flash.now[:alert] = @account.errors.full_messages
       render :index
