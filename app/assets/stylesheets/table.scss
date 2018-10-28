@@ -53,7 +53,7 @@ tr:nth-child(even) {
   text-align: center;
 }
 
-input[type=text], input[type=number] {
+td > input[type=text], input[type=number] {
   border: none;
   text-align: center;
   width: 85px;
@@ -66,7 +66,7 @@ td.submit {
   background-color: #c1c5cc;
 }
 
-input[type=submit] {
+td > input[type=submit] {
   border-radius: 5px;
   border: 1px solid black;
 }
