@@ -37,4 +37,11 @@ feature 'Navigating to the index page' do
     visit_accounts_index_for_date(date, 'nj')
     expect(page).to have_content("Amount Credit")
   end
+
+  scenario 'Not entering valid inputs' do
+    login_user(a_user)
+    create_accounts_different_dates
+    click_button "submit"
+    expect(page).to have_content("Please fill in both fields with valid inputs")
+  end
 end

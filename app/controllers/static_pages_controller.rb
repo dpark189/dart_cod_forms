@@ -4,7 +4,12 @@ class StaticPagesController < ApplicationController
   end
 
   def accounts_by_date
-    redirect_to controller: 'accounts', action: 'index', account_attr: date_params
+    if date_params[:date] != "" && date_params[:location] != ""
+      redirect_to controller: 'accounts', action: 'index', account_attr: date_params
+    else
+      flash[:errors] = "Please fill in both fields with valid inputs"
+      redirect_to controller: 'static_pages', action: "root"
+    end
   end
 
   private

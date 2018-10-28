@@ -17,6 +17,13 @@
       <%= link_to('Logout', destroy_user_session_path, method: :delete ) %>
     <% end %>
     <%= yield %>
+    <ul>
+    <% flash.each do |type, error| %>
+        <li>
+          <%= error %>
+        </li>
+    <% end %>
+    </ul>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
