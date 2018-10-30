@@ -85,7 +85,7 @@
       <% if @user_role == "accounting"%>
         <td>
           <input
-          class="completed"
+          class="acc_completed"
           type="checkbox"
           name="accounts[accounts][]account[<%= @user_role %>_completed]"
           value="true"
@@ -101,7 +101,7 @@
       <td>
         <% if account.logistics_completed == true %>
         <input
-        class="completed"
+        class="log_completed"
         type="checkbox"
         checked
         name="accounts[accounts][]account[<%= @user_role %>_completed]"
@@ -109,7 +109,7 @@
         >
         <% else %>
         <input
-        class="completed"
+        class="log_completed"
         type="checkbox"
         name="accounts[accounts][]account[<%= @user_role %>_completed]"
         value="true"
@@ -117,7 +117,7 @@
         <% end %>
       </td>
     <% end %>
-    
+
   </tr>
 
   <script type="text/javascript">

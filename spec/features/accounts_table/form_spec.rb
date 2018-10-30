@@ -38,7 +38,7 @@ feature 'Account Form' do
     create_test_account1
     account = Account.first
     visit_accounts_index_for_date(date, "nj")
-    find(:css, ".completed").set(true)
+    find(:css, ".acc_completed").set(true)
 
     find(:css, ".amount_received").set("#{account.amount_owed}")
 
