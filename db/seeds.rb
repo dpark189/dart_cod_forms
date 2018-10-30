@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.create!(username: "a_user", password: "password", role: "accounting")
-User.create!(username: "l_user", password: "password", role: "logistics")
+if !User.find_by(username: "a_user") || !User.find_by(username: "l_user")
+  User.create!(username: "a_user", password: "password", role: "accounting")
+  User.create!(username: "l_user", password: "password", role: "logistics")
+end
 
 def create_account(num)
   received = rand(1..2000)
