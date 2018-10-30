@@ -1,5 +1,5 @@
 
-  <tr class="rows">
+  <tr id="<%= account.id %>" class="row<%= idx %> rows">
     <td><%= account.ship_date.strftime("%m/%d/%Y") %></td>
     <td><%= account.invoice_number %></td>
     <td><%= account.route_number %></td>
@@ -77,19 +77,14 @@
       name="accounts[accounts][]account[reason_details]"
       cols="20"
       rows="1"
-      value="<%= account.reason_details || "" %>"></textarea>
+      ><%= account.reason_details %></textarea>
     </td>
 
     <%# accounting_completed %>
 
       <% if @user_role == "accounting"%>
         <td>
-          <input
-          class="acc_completed"
-          type="checkbox"
-          name="accounts[accounts][]account[<%= @user_role %>_completed]"
-          value="true"
-          >
+          <input type="checkbox" name="accounts[accounts][]account[accounting_completed]" value="true">
         </td>
       <% end %>
 
@@ -101,6 +96,8 @@
       <td>
         <% if account.logistics_completed == true %>
         <input
+        readonly = "readonly"
+        disabled
         class="log_completed"
         type="checkbox"
         checked
@@ -109,6 +106,8 @@
         >
         <% else %>
         <input
+        readonly = "readonly"
+        disabled
         class="log_completed"
         type="checkbox"
         name="accounts[accounts][]account[<%= @user_role %>_completed]"

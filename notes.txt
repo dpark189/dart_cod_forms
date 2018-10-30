@@ -1,0 +1,9 @@
+check for when user puts in blanks
+
+reasons not showing between l_user and a_user
+
+report for all shipments sent out on given day
+
+dates for when items were marked as completed by account and logisitics
+
+add extra layer of order by route number

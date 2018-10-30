@@ -20,10 +20,9 @@ def create_account(num)
     customer_id: "CN#{num}",
     customer: "CustomerName#{num}",
     amount_owed: rand(1..2000),
-    extra: 10,
-    amount_received: received,
-    received_as_cash_or_check: received,
-    logistics_agent_initials: "ad",
+    amount_received: 0,
+    received_as_cash_or_check: 0,
+    logistics_agent_initials: "",
     location: 'nj'
   )
 end

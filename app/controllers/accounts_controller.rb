@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
     type_completed = current_user.role == "accounting" ? "accounting_completed" : "logistics_completed"
     @accounts = Account.where("(ship_date = ? and #{type_completed} = ? and location = ?) or #{type_completed} = ?", params[:account_attr][:date], false, params[:account_attr][:location].downcase, false)
 
-    @accounts = @accounts.sort_by{|account| [ account.ship_date == params[:account_attr][:date] ? 0 : 1] }
+    @accounts = @accounts.sort_by{|account| [ (account.ship_date == params[:account_attr][:date] ? 0 : 1), account.route_number ] }
     @secondary_attr = [
       "credit",
       "id",
@@ -25,8 +25,9 @@ class AccountsController < ApplicationController
       new_val_accounts.each {|account| account.save}
       redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
     else
-      flash[:errors] = errors
-      redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
+      flash[:account_errors] = errors
+      hash = {"date": params[:date], "location": params[:location]}
+      redirect_to controller: 'accounts', action: 'index', :account_attr => { date: params[:date], location: params[:location] }
     end
   end
 

@@ -7,6 +7,7 @@ section#table_section {
   max-height: 80%;
   padding: 10px 0;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .table_div {
@@ -27,7 +28,6 @@ section#table_section {
 table {
   font-size: 13px;
   width: fit-content;
-  overflow-x: auto;
   background-color: #c1c5cc;
   table-layout: auto;
 }
@@ -42,10 +42,10 @@ table, th, td {
 
 table {
   border: none;
+  table-layout: auto;
 }
 
 td {
-  overflow-x: auto;
   align-items: center;
   text-align: center;
   padding: 0 4px;
@@ -57,6 +57,14 @@ tr {
 
 tr.rows:nth-child(even) {
   background-color: #bababa;
+}
+
+.account_form {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  max-width: 100%;
 }
 
 .account_form > input {
@@ -83,9 +91,6 @@ div.table_div > form > input[type=submit] {
 
 .account_form > input[type=number]{
   padding-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 

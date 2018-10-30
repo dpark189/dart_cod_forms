@@ -18,8 +18,8 @@
           <% end %>
         <% end %>
       </tr>
-        <% @accounts.each do |account| %>
-          <%= render "row_form.html.erb", account: account %>
+        <% @accounts.each_with_index do |account, idx| %>
+          <%= render "row_form.html.erb", account: account, idx: idx %>
         <% end %>
     </table>
     <input type="submit" value="Submit">
@@ -27,7 +27,25 @@
   </div>
 </section>
 
+<% if flash[:account_errors] %>
+  <% flash[:account_errors].keys.each do |id| %>
+    <ul id="account_errors">
+      <li class="<%= id %> error_list">
+        <%= flash[:account_errors][id] %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+
 <script type="text/javascript">
+  const error_count = $('#account_errors').children();
+  const id_arr = [];
+  document.querySelectorAll('li.error_list').forEach( (el) => (
+    id_arr.push(el.className.split(" ")[0])
+  ));
+  id_arr.forEach( id => (
+    document.getElementById(id).style.backgroundColor = "red"
+  ))
   $('textarea.reason_details').focus(function () {
     $(this).animate({rows: '4'}, 150);
   });
