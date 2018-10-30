@@ -124,7 +124,6 @@ def create_test_account
     customer_id: "CN",
     customer: "CustomerName",
     amount_owed: 1000,
-    completed: false,
     location: "nj"
   ) }
 end

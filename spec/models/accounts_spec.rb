@@ -24,13 +24,25 @@ RSpec.describe Account, :type => :model do
   end
 
   describe "Account completed status is set to false by default" do
-
     create_test_account
-
     it "initializes with completed as false" do
-      expect(account.completed).to be(false)
+      expect(account.logistics_completed).to be(false)
+      expect(account.accounting_completed).to be(false)
+    end
+  end
+
+  describe "When Account instance is updated" do
+    create_test_account
+    it "should check if the amount_owed >= amount_received" do
+      expect(account).to receive(:check_logi_complete)
+      account.update_attributes(amount_received: account.amount_owed)
     end
 
+    it "should set logistics_completed to true if owed >= amount_received" do
+      account.update_attributes(amount_received: account.amount_owed)
+      expect(account.logistics_completed).to be(true)
+      
+    end
   end
 
 
