@@ -13,7 +13,7 @@
         <% if !@accounts.empty? %>
           <% @accounts.first.attributes.keys.each do |key| %>
           <% next if @secondary_attr.include?(key) %>
-          <% next if key == "amount_credit" && current_user.role == "logistics" %>
+          <% next if ( key == "amount_credit" || key == "logistics_completed" )&& current_user.role == "logistics" %>
           <th><%= key.titleize %></th>
           <% end %>
         <% end %>

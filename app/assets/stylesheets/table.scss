@@ -2,23 +2,27 @@
 section#table_section {
   display: flex;
   justify-content: center;
-  overflow: auto;
+  overflow: visible;
   width: 100%;
+  max-height: 80%;
   padding: 10px 0;
   background-color: #909293;
+  position: relative;
 }
 
 .table_div {
   width: 95%;
+  height: auto;
   overflow-x: scroll;
   margin: 0;
   box-shadow: 10px 10px 5px grey;
-
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 table {
   font-size: 13px;
-  width: 100% !important;
+  width: fit-content;
   overflow-x: auto;
   background-color: #c1c5cc;
   table-layout: auto;
@@ -30,6 +34,10 @@ table, th, td {
   border: 1px solid black;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+table {
+  border: none;
 }
 
 td {
@@ -59,16 +67,12 @@ td > input[type=text], input[type=number] {
   width: 85px;
 }
 
-td.submit {
+div.table_div > form > input[type=submit] {
   padding: 0;
-  background: inherit;
-  border: none;
-  background-color: #c1c5cc;
-}
-
-td > input[type=submit] {
-  border-radius: 5px;
-  border: 1px solid black;
+  background-color: white;
+  position: absolute;
+  bottom: -24px;
+  width: 10%;
 }
 
 .account_form > input[type=number]{

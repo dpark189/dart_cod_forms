@@ -80,34 +80,44 @@
       value="<%= account.reason_details || "" %>"></textarea>
     </td>
 
-    <%# completed %>
+    <%# accounting_completed %>
 
-    <td>
-      <% if ( @user_role == "logistics" && account.logistics_completed != true ) ||
-      ( @user_role == "accounting" && account.accounting_completed != true )%>
-
-        <input
-        class="completed"
-        type="checkbox"
-        name="accounts[accounts][]account[<%= @user_role %>_completed]"
-        value="true" >
-
-      <% else %>
-
-        <input
-        class="completed"
-        type="checkbox"
-        name="accounts[accounts][]account[<%= @user_role %>_completed]"
-        value="true"
-        checked="checked" >
-
+      <% if @user_role == "accounting"%>
+        <td>
+          <input
+          class="completed"
+          type="checkbox"
+          name="accounts[accounts][]account[<%= @user_role %>_completed]"
+          value="true"
+          >
+        </td>
       <% end %>
-    </td>
 
     <td>
       <%= account.location.upcase %>
     </td>
 
+    <% if @user_role == "accounting"%>
+      <td>
+        <% if account.logistics_completed == true %>
+        <input
+        class="completed"
+        type="checkbox"
+        checked
+        name="accounts[accounts][]account[<%= @user_role %>_completed]"
+        value="true"
+        >
+        <% else %>
+        <input
+        class="completed"
+        type="checkbox"
+        name="accounts[accounts][]account[<%= @user_role %>_completed]"
+        value="true"
+        >
+        <% end %>
+      </td>
+    <% end %>
+    
   </tr>
 
   <script type="text/javascript">
