@@ -36,6 +36,7 @@ class Account < ApplicationRecord
   end
 
   def owed_vs_received
+    return false if !self.amount_received 
     return (self.amount_owed <=> self.amount_received) <= 0
   end
 
