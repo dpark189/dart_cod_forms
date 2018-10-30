@@ -1,5 +1,5 @@
 
-  <tr>
+  <tr class="rows">
     <td><%= account.ship_date.strftime("%m/%d/%Y") %></td>
     <td><%= account.invoice_number %></td>
     <td><%= account.route_number %></td>
@@ -119,12 +119,3 @@
     <% end %>
 
   </tr>
-
-  <script type="text/javascript">
-    $('textarea.reason_details').focus(function () {
-      $(this).animate({rows: '4'}, 150);
-    });
-    $('textarea.reason_details').focusout(function () {
-      $(this).animate({rows: '1'}, 150);
-    });
-  </script>

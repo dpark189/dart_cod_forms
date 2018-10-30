@@ -6,7 +6,6 @@ section#table_section {
   width: 100%;
   max-height: 80%;
   padding: 10px 0;
-  background-color: #909293;
   position: relative;
 }
 
@@ -15,7 +14,7 @@ section#table_section {
   height: auto;
   overflow-x: scroll;
   margin: 0;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 5px lightgrey;
   border: 1px solid black;
   border-radius: 5px;
 }
@@ -51,10 +50,9 @@ tr {
   background-color: white;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tr.rows:nth-child(even) {
+  background-color: #bababa;
 }
-
 
 .account_form > input {
   background-color: inherit;
@@ -71,8 +69,11 @@ div.table_div > form > input[type=submit] {
   padding: 0;
   background-color: white;
   position: absolute;
-  bottom: -24px;
+  bottom: -30px;
+  left: 44%;
   width: 10%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px lightgrey;
 }
 
 .account_form > input[type=number]{
@@ -91,7 +92,7 @@ select {
 }
 
 textarea.reason_details:focus {
-  background:#ccc;
+  background: white;
   color: #6a6f75;
   outline: none;
 }
