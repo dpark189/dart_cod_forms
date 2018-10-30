@@ -11,18 +11,28 @@ feature 'Account Form' do
     expect(page).to have_content("10/25/2018")
   end
 
-  scenario "Multiple accounts but the one with different date is completed" do
-
+  scenario "For Accounting: Multiple accounts but the one with different date is completed" do
     date = "10/24/2018"
     login_user(a_user)
     create_accounts_different_dates
-    Account.last.update_attributes(completed: true)
+    Account.last.update_attributes(accounting_completed: true)
     visit_accounts_index_for_date(date, "nj")
     expect(page).to have_content("10/24/2018")
     expect(page).to_not have_content("10/25/2018")
   end
 
-  scenario "Marking account as complete" do
+  scenario "For Logistics: Multiple accounts but the one with different date is completed" do
+    date = "10/24/2018"
+    login_user(l_user)
+    create_accounts_different_dates
+    account = Account.last
+    account.update_attributes(amount_received: account.amount_owed)
+    visit_accounts_index_for_date(date, "nj")
+    expect(page).to have_content("10/24/2018")
+    expect(page).to_not have_content("10/25/2018")
+  end
+
+  scenario "Accounting: Marking account as complete" do
     date = "10/24/2018"
     login_user(a_user)
     create_test_account1

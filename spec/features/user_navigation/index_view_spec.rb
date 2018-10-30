@@ -24,7 +24,7 @@ feature 'Navigating to the index page' do
     date = "10/25/2018"
     login_user(l_user)
     create_accounts_different_dates
-    Account.last.update_attributes(completed: true)
+    Account.last.update_attributes(logistics_completed: true)
     visit_accounts_index_for_date(date, 'nj')
     expect(page).to_not have_content("Amount Credit")
   end
@@ -33,7 +33,7 @@ feature 'Navigating to the index page' do
     date = "10/25/2018"
     login_user(a_user)
     create_accounts_different_dates
-    Account.last.update_attributes(completed: true)
+    Account.last.update_attributes(accounting_completed: true)
     visit_accounts_index_for_date(date, 'nj')
     expect(page).to have_content("Amount Credit")
   end

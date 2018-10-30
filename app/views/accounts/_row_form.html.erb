@@ -53,10 +53,11 @@
 
     <%# completed %>
     <td>
-      <% if !account.completed %>
-        <input class="completed" type="checkbox" name="account[completed]" value="true" >
+      <% if ( @user_role == "logistics" && account.logistics_completed != true ) ||
+      ( @user_role == "accounting" && account.accounting_completed != true )%>
+        <input class="completed" type="checkbox" name="account[<%= @user_role %>_completed]" value="true" >
       <% else %>
-        <input class="completed" type="checkbox" name="account[completed]" value="true" checked="checked" >
+        <input class="completed" type="checkbox" name="account[<%= @user_role %>_completed]" value="true" checked="checked" >
       <% end %>
     </td>
 

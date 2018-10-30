@@ -1,8 +1,9 @@
 class AccountsController < ApplicationController
   def index
+    @user_role = current_user.role
     @completed_filter = params[:completed] == "all" ? nil : params[:completed] == "false" || params[:completed] == nil ? false : true
-
-    @accounts = Account.where("(ship_date = ? and completed = ? and location = ?) or completed = ?", params[:account_attr][:date], false, params[:account_attr][:location].downcase, false)
+    type_completed = current_user.role == "accounting" ? "accounting_completed" : "logistics_completed"
+    @accounts = Account.where("(ship_date = ? and #{type_completed} = ? and location = ?) or #{type_completed} = ?", params[:account_attr][:date], false, params[:account_attr][:location].downcase, false)
 
     @accounts = @accounts.sort_by{|account| [ account.ship_date == params[:account_attr][:date] ? 0 : 1] }
     @secondary_attr = [
@@ -17,7 +18,9 @@ class AccountsController < ApplicationController
     if param_copy[:logistics_agent_initials]
       param_copy[:logistics_agent_initials] = param_copy[:logistics_agent_initials].downcase
     end
-    param_copy[:completed] = account_params[:completed] == "true" ? true : false
+    if current_user.role == "accounting"
+      param_copy[:accounting_completed] = account_params[:accounting_completed] == "true" ? true : false
+    end
     if @account.update_attributes(param_copy)
       redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
     else
@@ -35,6 +38,8 @@ class AccountsController < ApplicationController
     :reason_code,
     :reason_details,
     :credit,
-    :completed)
+    :logistics_completed,
+    :accounting_completed
+  )
   end
 end
