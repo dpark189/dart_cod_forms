@@ -12,6 +12,32 @@ class AccountsController < ApplicationController
     ]
   end
 
+  def update_multiple
+    new_attrs_hash = parse_params(account_params)
+    new_val_accounts = []
+    new_attrs_hash.keys.each do |id|
+      account = Account.find(id)
+      account.assign_attributes(new_attrs_hash[id])
+      new_val_accounts << account
+    end
+    errors = check_all_for_valid(new_val_accounts) || {}
+    if errors.empty?
+      new_val_accounts.each {|account| account.save}
+      redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
+    else
+      flash[:errors] = errors
+      redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
+    end
+  end
+
+  def new
+
+  end
+
+  def create
+
+  end
+
   def update
     @account = Account.find(params[:id])
     param_copy = account_params
@@ -32,14 +58,51 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:amount_received, :amount_credit,
-    :received_as_cash_or_check,
-    :logistics_agent_initials,
-    :reason_code,
-    :reason_details,
-    :credit,
-    :logistics_completed,
-    :accounting_completed
-  )
+    params.require(:accounts).permit({
+      accounts: [
+        account: [
+          :id,
+          :amount_received,
+          :amount_credit,
+          :received_as_cash_or_check,
+          :logistics_agent_initials,
+          :reason_code,
+          :reason_details,
+          :credit,
+          :logistics_completed,
+          :accounting_completed
+        ]
+      ]
+    })
+    # array of ids:
+    # params[:accounts][:accounts].each {|account| account["account"]["id"]}
   end
+
+  def parse_params(params)
+    copy = params.clone
+    hash = Hash.new()
+    params[:accounts].each do |account|
+      val = account["account"].clone
+      val.delete("id")
+      hash[account["account"]["id"].to_i] = val
+    end
+    return hash
+  end
+
+  def check_all_for_valid(arr)
+    errors = {}
+    arr.each do |account|
+      if !account.valid?
+        errors[account.id] = account.errors.full_messages
+      end
+    end
+    return errors
+  end
+
+  def save_all_updates(arr)
+    arr.each do |account|
+      account.save
+    end
+  end
+
 end

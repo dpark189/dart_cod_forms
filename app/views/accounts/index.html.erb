@@ -5,6 +5,9 @@
     <span>No Accounts to show for the date given</span>
   <% end %>
   <div class="table_div">
+    <form class="account_form" action="<%= update_multiple_path(date: params[:account_attr][:date], location: params[:account_attr][:location]) %>" method="POST">
+      <input type="hidden" name="_method" value="<%= :patch %>">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <table>
       <tr>
         <% if !@accounts.empty? %>
@@ -15,11 +18,11 @@
           <% end %>
         <% end %>
       </tr>
-      <% @accounts.each do |account| %>
-      <tr>
-        <%= render "row_form.html.erb", account: account %>
-      </tr>
-      <% end %>
+        <% @accounts.each do |account| %>
+          <%= render "row_form.html.erb", account: account %>
+        <% end %>
     </table>
+    <input type="submit" value="Submit">
+  </form>
   </div>
 </section>
