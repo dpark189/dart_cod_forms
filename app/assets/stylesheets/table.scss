@@ -10,6 +10,11 @@ section#table_section {
 }
 
 .table_div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #c1c5cc;
+  align-items: center;
   width: 95%;
   height: auto;
   overflow-x: scroll;
@@ -78,6 +83,10 @@ div.table_div > form > input[type=submit] {
 
 .account_form > input[type=number]{
   padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 select {
