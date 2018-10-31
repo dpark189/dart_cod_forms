@@ -42,20 +42,20 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = Account.find(params[:id])
-    param_copy = account_params
-    if param_copy[:logistics_agent_initials]
-      param_copy[:logistics_agent_initials] = param_copy[:logistics_agent_initials].downcase
-    end
-    if current_user.role == "accounting"
-      param_copy[:accounting_completed] = account_params[:accounting_completed] == "true" ? true : false
-    end
-    if @account.update_attributes(param_copy)
-      redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
-    else
-      flash.now[:alert] = @account.errors.full_messages
-      render :index
-    end
+    # @account = Account.find(params[:id])
+    # param_copy = account_params
+    # if param_copy[:logistics_agent_initials]
+    #   param_copy[:logistics_agent_initials] = param_copy[:logistics_agent_initials].downcase
+    # end
+    # if current_user.role == "accounting"
+    #   param_copy[:accounting_completed] = account_params[:accounting_completed] == "true" ? true : false
+    # end
+    # if @account.update_attributes(param_copy)
+    #   redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
+    # else
+    #   flash.now[:alert] = @account.errors.full_messages
+    #   render :index
+    # end
   end
 
   private
