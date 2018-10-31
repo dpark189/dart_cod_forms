@@ -29,6 +29,7 @@ class Account < ApplicationRecord
   validates :logistics_agent_initials, presence: true, :if => :owed_vs_received
   validates :logistics_agent_initials, :length => {:maximum => 2}, :if => :owed_vs_received
   validate :check_logi_complete, on: :update
+  validate :save_completed_dates, on: :update
 
   def default_completed
     self.logistics_completed ||= false
@@ -36,7 +37,7 @@ class Account < ApplicationRecord
   end
 
   def owed_vs_received
-    return false if !self.amount_received 
+    return false if !self.amount_received
     return (self.amount_owed <=> self.amount_received) <= 0
   end
 
@@ -45,4 +46,11 @@ class Account < ApplicationRecord
     owed = self.amount_owed
     self.logistics_completed = rec_ammount >= owed ? true : false
   end
+
+  def save_completed_dates
+    date = Date.today
+    self.logistics_completed_date = self.logistics_completed == true ? date : nil
+    self.accounting_completed_date = self.accounting_completed == true ? date : nil
+  end
+
 end
