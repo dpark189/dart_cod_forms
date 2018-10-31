@@ -83,9 +83,15 @@
     <%# accounting_completed %>
 
       <% if @user_role == "accounting"%>
-        <td>
-          <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" value="true">
-        </td>
+        <% if account.accounting_completed == false %>
+          <td>
+            <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" value="true">
+          </td>
+        <% else %>
+          <td>
+            <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" checked="checked" value="true" disabled>
+          </td>
+        <% end %>
       <% end %>
 
     <td>

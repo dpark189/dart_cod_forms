@@ -1,5 +1,7 @@
 <h1>Accounts</h1>
 
+<%= link_to "View Completed", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}, :completed => "true" ) %>
+<%= link_to "View Incompleted", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}) %>
 <section id="table_section">
   <% if !@accounts %>
     <span>No Accounts to show for the date given</span>
@@ -38,14 +40,15 @@
 <% end %>
 
 <script type="text/javascript">
-  const error_count = $('#account_errors').children();
-  const id_arr = [];
-  document.querySelectorAll('li.error_list').forEach( (el) => (
+  for (let i = 0; i < 1; i++) {
+    let id_arr = [];
+    document.querySelectorAll('li.error_list').forEach( (el) => (
     id_arr.push(el.className.split(" ")[0])
-  ));
-  id_arr.forEach( id => (
+    ));
+    id_arr.forEach( id => (
     document.getElementById(id).style.backgroundColor = "red"
-  ))
+    ))
+  }
   $('textarea.reason_details').focus(function () {
     $(this).animate({rows: '4'}, 150);
   });
