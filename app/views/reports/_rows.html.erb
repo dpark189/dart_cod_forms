@@ -6,4 +6,10 @@
   <td><%= account.customer %></td>
   <td>$<%= account.amount_owed %></td>
   <td><%= account.extra %></td>
+  <td><%= account.amount_received %></td>
+  <td><%= account.logistics_completed ? "yes" : "no" %></td>
+  <td><%= account.logistics_completed_date ? account.logistics_completed_date.strftime("%m/%d/%Y") : "N/A" %></td>
+  <td><%= account.logistics_agent_initials ? account.logistics_agent_initials : "N/A" %></td>
+  <td><%= account.accounting_completed ? "yes" : "no" %></td>
+  <td><%= account.accounting_completed_date ? account.accounting_completed_date.strftime("%m/%d/%Y") : "N/A" %></td>
 </tr>

@@ -10,7 +10,8 @@ class ReportsController < ApplicationController
       "customer_id",
       "customer",
       "amount_owed",
-      "extra"
+      "extra",
+      "amount_received"
     ]
   end
 end
