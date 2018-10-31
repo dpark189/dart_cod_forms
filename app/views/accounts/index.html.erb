@@ -10,6 +10,7 @@
     <%= link_to "View Incomplete", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}) %>
   </li>
 </ul>
+
 <section id="table_section">
   <% if !@accounts %>
     <span>No Accounts to show for the date given</span>

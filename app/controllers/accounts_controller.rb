@@ -9,6 +9,8 @@ class AccountsController < ApplicationController
     @secondary_attr = [
       "credit",
       "id",
+      "logistics_completed_date",
+      "accounting_completed_date"
     ]
   end
 
