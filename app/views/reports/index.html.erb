@@ -1,0 +1,30 @@
+<h2>Report for <%= params[:account_attr][:location].upcase %>, <%= Date.parse(params[:account_attr][:date]).strftime("%m/%d/%Y") %></h2>
+
+<ul class="nav_links">
+  <li>
+    <%= link_to "View Report", reports_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]} ) %>
+  </li>
+  <li>
+    <%= link_to "View Completed", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}, :completed => "true" ) %>
+  </li>
+  <li>
+    <%= link_to "View Incomplete", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}) %>
+  </li>
+</ul>
+
+<div class="account_report">
+  <table>
+    <tr>
+      <% if !@accounts.empty? %>
+        <% @accounts.first.attributes.keys.each do |key| %>
+        <% next if !@accepted_fields.include?(key) %>
+        <th><%= key.titleize %></th>
+        <% end %>
+      <% end %>
+    </tr>
+
+    <% @accounts.each_with_index do |account, idx| %>
+      <%= render "rows.html.erb", account: account, idx: idx %>
+    <% end %>
+  </table>
+</div>

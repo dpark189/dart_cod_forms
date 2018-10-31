@@ -1,7 +1,15 @@
 <h1>Accounts</h1>
-
-<%= link_to "View Completed", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}, :completed => "true" ) %>
-<%= link_to "View Incompleted", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}) %>
+<ul class="nav_links">
+  <li>
+    <%= link_to "View Report", reports_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]} ) %>
+  </li>
+  <li>
+    <%= link_to "View Completed", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}, :completed => "true" ) %>
+  </li>
+  <li>
+    <%= link_to "View Incomplete", accounts_path( :account_attr => {:date => params[:account_attr][:date], :location => params[:account_attr][:location]}) %>
+  </li>
+</ul>
 <section id="table_section">
   <% if !@accounts %>
     <span>No Accounts to show for the date given</span>

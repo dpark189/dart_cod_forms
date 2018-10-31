@@ -49,3 +49,22 @@ label {
 input {
   text-align: center;
 }
+
+ul.nav_links {
+  display: flex;
+  list-style: none;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+ul.nav_links > li {
+  margin: 0;
+  padding: 0 5px;
+  border-left: 1px solid black;
+}
+
+ul.nav_links > li:nth-child(1) {
+  border-left: none;
+}
