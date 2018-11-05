@@ -85,5 +85,5 @@ production:
   adapter: sqlserver
   database: e21PH #placeholder
   dataserver: sqlserver01\PH #placeholder
-  username: user #placeholder
-  password: pass #placeholder
+  username: <%= Rails.application.credentials.sqlserver[:username] %>
+  password: <%= Rails.application.credentials.sqlserver[:password] %>
