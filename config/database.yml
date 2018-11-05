@@ -83,7 +83,14 @@ test:
 production:
   <<: *default
   adapter: sqlserver
+<<<<<<< HEAD
   database: e21prod #placeholder
   dataserver: sqlserver01 #placeholder
   username: intranet #placeholder
   password: Duck600it #placeholder
+=======
+  database: e21PH #placeholder
+  dataserver: sqlserver01\PH #placeholder
+  username: <%= Rails.application.credentials.sqlserver[:username] %>
+  password: <%= Rails.application.credentials.sqlserver[:password] %>
+>>>>>>> 44e47483e36ee6e475c4fe34fa9346a50febe8a5

@@ -116,7 +116,7 @@ def query_test
     ordhead a, invheadview b
   WHERE a.order_numb = b.order_numb AND a.rel_numb = b.rel_numb AND order_terms LIKE 'COD%'"
 
-  client = TinyTds::Client.new username: "intranet", password: "Duck600it", adapter: "sqlserver", host: "sqlserver01", database: "e21prod"
+  client = TinyTds::Client.new username: "#{Rails.application.credentials.sqlserver[:username]}", password: "#{Rails.application.credentials.sqlserver[:password]}", adapter: "sqlserver", host: "sqlserver01", database: "e21prod"
   result = client.execute("#{column_query}")
   arr = []
   result.each do |row|
@@ -126,7 +126,7 @@ def query_test
 end
 
 def prod_client
-  client = TinyTds::Client.new username: "intranet", password: "Duck600it", adapter: "sqlserver", host: "sqlserver01", database: "e21prod"
+  client = TinyTds::Client.new username: "#{Rails.application.credentials.sqlserver[:username]}", password: "#{Rails.application.credentials.sqlserver[:password]}", adapter: "sqlserver", host: "sqlserver01", database: "e21prod"
   return client
 end
 
