@@ -83,7 +83,7 @@ test:
 production:
   <<: *default
   adapter: sqlserver
-  database: e21PH #placeholder
-  dataserver: sqlserver01\PH #placeholder
-  username: user #placeholder
-  password: pass #placeholder
+  database: e21prod #placeholder
+  dataserver: sqlserver01 #placeholder
+  username: intranet #placeholder
+  password: Duck600it #placeholder
