@@ -1,4 +1,4 @@
-class CreateAccountsTable < ActiveRecord::Migration[5.2]
+class CreateAccountsTable < ActiveRecord::Migration[5.1]
   def change
     create_table :accounts_tables do |t|
       t.datetime :ship_date, null: false

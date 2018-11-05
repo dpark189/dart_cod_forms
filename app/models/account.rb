@@ -23,7 +23,7 @@
 #
 
 class Account < ApplicationRecord
-  self.set_table_name = "dartaccounts"
+  self.table_name = "dartaccounts"
   before_save :default_completed
   before_update :check_logi_complete
   validates :ship_date, :route_number, :customer_id, :customer, presence: true

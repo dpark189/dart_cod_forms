@@ -1,4 +1,4 @@
-class RenameAccountsTable < ActiveRecord::Migration[5.2]
+class RenameAccountsTable < ActiveRecord::Migration[5.1]
   def change
     rename_table :accounts, :dartaccounts
   end

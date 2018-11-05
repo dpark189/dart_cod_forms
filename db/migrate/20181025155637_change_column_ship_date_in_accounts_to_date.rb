@@ -1,4 +1,4 @@
-class ChangeColumnShipDateInAccountsToDate < ActiveRecord::Migration[5.2]
+class ChangeColumnShipDateInAccountsToDate < ActiveRecord::Migration[5.1]
   def change
     change_column :accounts, :ship_date, :date
   end

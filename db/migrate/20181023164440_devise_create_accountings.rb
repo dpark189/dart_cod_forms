@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeviseCreateAccountings < ActiveRecord::Migration[5.2]
+class DeviseCreateAccountings < ActiveRecord::Migration[5.1]
   def change
     create_table :accountings do |t|
       ## Database authenticatable

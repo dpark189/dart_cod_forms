@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -17,8 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # for production
-# gem "tiny_tds"
-# gem 'activerecord-sqlserver-adapter'
+gem "tiny_tds"
+gem 'activerecord-sqlserver-adapter'
 # gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
 gem 'jquery-rails'
