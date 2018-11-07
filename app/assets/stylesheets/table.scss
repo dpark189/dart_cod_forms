@@ -42,6 +42,7 @@ table, th, td {
 table {
   border: none;
   table-layout: auto;
+  align-self: center;
 }
 
 td {
@@ -56,6 +57,10 @@ tr {
 
 tr.rows:nth-child(even) {
   background-color: #bababa;
+}
+
+tr.rows:nth-child(odd) {
+  background-color: #efefef;
 }
 
 .account_form {

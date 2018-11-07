@@ -2,7 +2,7 @@
 <form class="" action="<%= accounts_by_date_path %>" method="get">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <label for="">Select Shipping Date
-      <input type="date" name="static_pages[date]" value="">
+      <input type="date" name="static_pages[date]" value="<%= Date.today %>">
     </label>
     <label for="">Enter Call Center (2 characters)
       <input type="text" name="static_pages[location]" value="">
