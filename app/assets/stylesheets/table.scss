@@ -12,10 +12,9 @@ section#table_section {
   display: flex;
   justify-content: center;
   position: relative;
-  width: 100%;
   background: #c1c5cc;
   align-items: center;
-  width: 95%;
+  max-width: 95%;
   height: auto;
   margin: 0;
   box-shadow: 10px 10px 5px lightgrey;
@@ -64,8 +63,8 @@ tr.rows:nth-child(even) {
   justify-content: flex-start;
   flex-wrap: nowrap;
   height: 30vw;
-  overflow-x: scroll;
-  width: 100vw;
+  overflow: auto;
+  width: fit-content;
 }
 
 .account_form > input {
@@ -96,7 +95,7 @@ input[type=completed]:parent {
 
 .account_form > input[type=number]{
   padding-left: 10px;
-  width: 100%;
+  width: fit-content;
 }
 
 select {
