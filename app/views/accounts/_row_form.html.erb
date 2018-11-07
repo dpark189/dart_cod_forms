@@ -61,12 +61,16 @@
 
     <%# reason_code %>
 
-    <td>
+    <td class="reason_select">
       <select
       class="reason_code"
       name="accounts[accounts][]account[reason_code]">
       <% Account.reasons.each do |reason| %>
-        <option value="<%= reason %>"><%= reason %></option>
+        <% if account.reason_code == reason %>
+          <option selected="selected" value="<%= reason %>"><%= reason %></option>
+        <% else %>
+          <option value="<%= reason %>"><%= reason %></option>
+        <% end %>
       <% end %>
       </select>
     </td>

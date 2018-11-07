@@ -41,7 +41,14 @@ class Account < ApplicationRecord
   validates :logistics_agent_initials, :length => {:maximum => 2}, :if => :owed_vs_received
   validate :check_logi_complete, on: :update
   validate :save_completed_dates, on: :update
-  validates :reason_code, :inclusion => {:in => Account.reasons}
+  validates :reason_code, :inclusion => {:in =>  [nil,
+    "",
+    "Driver Error",
+    "Drop Approved by Credit",
+    "Drop Approved by Regional Manager",
+    "Returned - Credit in process",
+    "Short Paid - Pricing issue - Sales to investigate",
+    "Short Paid - Product missing - Credit pending"]}
 
   def default_completed
     self.logistics_completed ||= false

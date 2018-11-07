@@ -62,9 +62,13 @@ tr.rows:nth-child(even) {
   display: flex;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  height: 30vw;
+  max-height: 65vh;
   overflow: auto;
   width: fit-content;
+}
+
+select.reason_code {
+  max-width: 82px;
 }
 
 .account_form > input {
@@ -84,7 +88,7 @@ div.table_div > form > input[type=submit] {
   width: fit-content;;
   position: absolute;
   bottom: -30px;
-  left: 44%;
+  align-self: center;
   border-radius: 5px;
   box-shadow: 5px 5px 5px lightgrey;
 }
