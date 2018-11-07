@@ -84,11 +84,11 @@
 
       <% if @user_role == "accounting"%>
         <% if account.accounting_completed == false %>
-          <td>
+          <td class="checkbox">
             <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" value="true">
           </td>
         <% else %>
-          <td>
+          <td class="checkbox">
             <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" checked="checked" value="true" disabled>
           </td>
         <% end %>
@@ -99,7 +99,7 @@
     </td>
 
     <% if @user_role == "accounting"%>
-      <td>
+      <td class="checkbox">
         <% if account.logistics_completed == true %>
         <input
         readonly = "readonly"

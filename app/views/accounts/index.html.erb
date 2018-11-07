@@ -11,7 +11,6 @@
   </li>
 </ul>
 
-<section id="table_section">
   <% if !@accounts %>
     <span>No Accounts to show for the date given</span>
   <% end %>
@@ -36,7 +35,7 @@
     <input type="submit" value="Submit">
   </form>
   </div>
-</section>
+
 
 <% if flash[:account_errors] %>
   <% flash[:account_errors].keys.each do |id| %>
@@ -49,6 +48,7 @@
 <% end %>
 
 <script type="text/javascript">
+
   for (let i = 0; i < 1; i++) {
     let id_arr = [];
     document.querySelectorAll('li.error_list').forEach( (el) => (

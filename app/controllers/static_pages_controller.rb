@@ -8,7 +8,6 @@ class StaticPagesController < ApplicationController
       acc_arr = fetch_records(date_params[:location], date_params[:date])
       acc_arr.each do |acc|
         if !Account.find_by(invoice_number: acc["invoice_numb"])
-          debugger
           Account.create(location: acc["cost_ctr"].downcase,
           customer_id: acc["cust_code"],
           customer: acc["cust_name"],
