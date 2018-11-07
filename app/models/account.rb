@@ -23,6 +23,15 @@
 #
 
 class Account < ApplicationRecord
+  def self.reasons
+    [nil,
+      "Driver Error",
+    "Drop Approved by Credit",
+    "Drop Approved by Regional Manager",
+    "Returned - Credit in process",
+    "Short Paid - Pricing issue - Sales to investigate",
+    "Short Paid - Product missing - Credit pending"]
+  end
   self.table_name = "dartaccounts"
   before_save :default_completed
   before_update :check_logi_complete
@@ -32,6 +41,7 @@ class Account < ApplicationRecord
   validates :logistics_agent_initials, :length => {:maximum => 2}, :if => :owed_vs_received
   validate :check_logi_complete, on: :update
   validate :save_completed_dates, on: :update
+  validates :reason_code, :inclusion => {:in => Account.reasons}
 
   def default_completed
     self.logistics_completed ||= false

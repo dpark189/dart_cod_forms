@@ -65,9 +65,9 @@
       <select
       class="reason_code"
       name="accounts[accounts][]account[reason_code]">
-        <option value="#">option1</option>
-        <option value="#">option2</option>
-        <option value="#">option3</option>
+      <% Account.reasons.each do |reason| %>
+        <option value="<%= reason %>"><%= reason %></option>
+      <% end %>
       </select>
     </td>
 
