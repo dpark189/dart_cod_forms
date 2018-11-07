@@ -80,8 +80,9 @@ td > input[type=text], input[type=number] {
 }
 
 div.table_div > form > input[type=submit] {
-  padding: 0;
+  padding: 0 10px;
   background-color: white;
+  width: fit-content;;
   position: absolute;
   bottom: -30px;
   left: 44%;
@@ -121,4 +122,8 @@ textarea.reason_details:focus {
 
 table {
   font-size: 11px;
+}
+
+.account_errors {
+
 }

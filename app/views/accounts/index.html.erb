@@ -11,6 +11,18 @@
   </li>
 </ul>
 
+<ul id="account_errors">
+  <% if flash[:account_errors] %>
+    <% flash[:account_errors].keys.each do |id| %>
+      <% flash[:account_errors][id].each do |error| %>
+        <li class="<%= id %> error_list">
+          <%= error %>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
   <% if !@accounts %>
     <span>No Accounts to show for the date given</span>
   <% end %>
@@ -37,15 +49,7 @@
   </div>
 
 
-<% if flash[:account_errors] %>
-  <% flash[:account_errors].keys.each do |id| %>
-    <ul id="account_errors">
-      <li class="<%= id %> error_list">
-        <%= flash[:account_errors][id] %>
-      </li>
-    </ul>
-  <% end %>
-<% end %>
+
 
 <script type="text/javascript">
 

@@ -40,10 +40,13 @@ class Account < ApplicationRecord
 
   def owed_vs_received
     return false if !self.amount_received
+    return false if self.amount_owed == 0
+    return false if self.amount_received == nil
     return (self.amount_owed <=> self.amount_received) <= 0
   end
 
   def check_logi_complete
+    return false if self.amount_received == nil
     rec_ammount = self.amount_received
     owed = self.amount_owed
     self.logistics_completed = rec_ammount >= owed ? true : false

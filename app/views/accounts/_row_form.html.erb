@@ -21,8 +21,9 @@
       <input
       class="amount_received"
       type="number"
+      step="0.01"
       name="accounts[accounts][]account[amount_received]"
-      value="<%= account.amount_received ? account.amount_received : 0 %>">
+      value="<%= account.amount_received  %>">
     </td>
 
     <%# amount_credit %>
@@ -32,8 +33,9 @@
         <input
         class="amount_credit"
         type="number"
+        step="0.01"
         name="accounts[accounts][]account[amount_credit]"
-        value="<%= account.amount_credit || 0 %>">
+        value="<%= account.amount_credit %>">
       </td>
     <% end %>
 
@@ -42,9 +44,9 @@
     <td>
       <input
       class="received_as_cash_or_check"
-      type="number"
+      type="text"
       name="accounts[accounts][]account[received_as_cash_or_check]"
-      value="<%= account.received_as_cash_or_check || 0 %>">
+      value="<%= account.received_as_cash_or_check %>">
     </td>
 
     <%# logistics_agent_initials %>

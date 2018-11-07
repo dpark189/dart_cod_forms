@@ -14,7 +14,8 @@ class StaticPagesController < ApplicationController
           invoice_number: acc["invoice_numb"],
           route_number: acc["route_code"],
           amount_owed: acc["Total"],
-          ship_date: acc["ship_date"]
+          ship_date: acc["ship_date"],
+          amount_received: nil
           )
         end
       end
