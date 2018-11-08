@@ -2,4 +2,8 @@
 
 require_relative 'config/environment'
 
-run Rails.application
+# Rails.application.config.relative_url_root = '/cod'
+#
+# map Rails.application.config.relative_url_root || "/" do
+  run Rails.application
+# end

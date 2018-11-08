@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  wait_timeout: 5000
 
 development:
   <<: *default
@@ -94,8 +95,13 @@ test:
 production:
   <<: *default
   # database: cod_forms_production
+  # username: super
+  # password: password
+  # host: localhost
+  # port: 5432
   adapter: sqlserver
-  database: e21prod #placeholder
-  dataserver: sqlserver01 #placeholder
-  username: intranet #placeholder
-  password: Duck600it #placeholder
+  database: e21prod
+  host: sqlserver01
+  username: intranet
+  password: Duck600it
+  wait_timeout:

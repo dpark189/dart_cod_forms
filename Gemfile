@@ -17,7 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # for production
-gem "tiny_tds"
+gem "tiny_tds", '>=2.1'
+
 gem 'activerecord-sqlserver-adapter'
 # gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
