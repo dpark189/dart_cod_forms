@@ -1,5 +1,7 @@
 {
   "name": "cod_forms",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "uglify-es": "^3.3.9"
+  }
 }

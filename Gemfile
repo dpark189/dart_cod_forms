@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # for production
 gem "tiny_tds", '<=1.3.0'
+gem 'strip_attributes'
 
 gem 'activerecord-sqlserver-adapter'
 # gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
@@ -34,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'pry-rails'
 # gem 'rails_12factor'
 
 # Use ActiveStorage variant

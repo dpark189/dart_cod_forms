@@ -26,7 +26,9 @@ class AccountsController < ApplicationController
     end
     errors = check_all_for_valid(new_val_accounts) || {}
     if errors.empty?
-      new_val_accounts.each {|account| account.save}
+      new_val_accounts.each do |account|
+        account.save
+      end
       redirect_to controller: 'accounts', action: 'index', account_attr: { date: params[:date], location: params[:location] }
     else
       flash[:account_errors] = errors
@@ -90,6 +92,7 @@ class AccountsController < ApplicationController
       val = account["account"].clone
       val.delete("id")
       hash[account["account"]["id"].to_i] = val
+
     end
     return hash
   end

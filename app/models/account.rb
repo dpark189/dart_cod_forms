@@ -5,21 +5,23 @@
 #  id                        :bigint(8)        not null, primary key
 #  ship_date                 :date             not null
 #  invoice_number            :integer
-#  route_number              :integer          not null
+#  route_number              :string          not null
 #  customer_id               :string           not null
 #  customer                  :string           not null
 #  amount_owed               :integer
 #  extra                     :integer
 #  amount_received           :integer
 #  amount_credit             :integer
-#  received_as_check_or_cash :integer
+#  received_as_check_or_cash :string
 #  logistics_agent_initials  :string
 #  reason_code               :string
 #  reason_detail            :string
 #  credit                    :integer
 #  accounting_completed      :boolean
+#  accounting_completed_date :datetime
 #  location                  :string           not null
 #  logistics_completed       :boolean
+#  logistics_completed_date  :datetime
 #
 
 class Account < ApplicationRecord
@@ -35,6 +37,7 @@ class Account < ApplicationRecord
   self.table_name = "dartaccounts"
   before_save :default_completed
   before_update :check_logi_complete
+  before_validation :strip_whitespace
   validates :ship_date, :route_number, :customer_id, :customer, presence: true
   validates :invoice_number, uniqueness: true
   validates :logistics_agent_initials, presence: true, :if => :owed_vs_received
@@ -73,6 +76,14 @@ class Account < ApplicationRecord
     date = Date.today
     self.logistics_completed_date = self.logistics_completed == true ? date : nil
     self.accounting_completed_date = self.accounting_completed == true ? date : nil
+  end
+
+  def strip_whitespace
+    self.attributes.each do |pair|
+      if pair[-1].is_a? String
+        pair[-1].strip!
+      end
+    end
   end
 
 end
