@@ -35,7 +35,7 @@
         <% if !@accounts.empty? %>
           <% @accounts.first.attributes.keys.each do |key| %>
           <% next if @secondary_attr.include?(key) %>
-          <% next if ( key == "amount_credit" || key == "logistics_completed" || key == "accounting_completed" ) && current_user.role == "logistics" %>
+          <% next if ( key == "amount_credit" || key == "logistics_completed" || key == "logistics_completed_date" || key == "accounting_completed" || key == "accounting_completed_date" ) && current_user.role == "logistics" %>
           <th><%= key.titleize %></th>
           <% end %>
         <% end %>
@@ -62,10 +62,10 @@
     document.getElementById(id).style.backgroundColor = "red"
     ))
   }
-  $('textarea.reason_details').focus(function () {
+  $('textarea.reason_detail').focus(function () {
     $(this).animate({rows: '4'}, 150);
   });
-  $('textarea.reason_details').focusout(function () {
+  $('textarea.reason_detail').focusout(function () {
     $(this).animate({rows: '1'}, 150);
   });
 </script>

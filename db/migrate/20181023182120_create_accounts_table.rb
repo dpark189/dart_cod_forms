@@ -10,10 +10,10 @@ class CreateAccountsTable < ActiveRecord::Migration[5.1]
       t.integer :extra
       t.integer :amount_received
       t.integer :ammount_credit
-      t.integer :received_as_cash_or_check
+      t.integer :received_as_check_or_cash
       t.string :logistics_agent_initials
       t.string :reason_code
-      t.string :reason_details
+      t.string :reason_detail
     end
   end
 end

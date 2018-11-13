@@ -39,14 +39,14 @@
       </td>
     <% end %>
 
-    <%# received_as_cash_or_check %>
+    <%# received_as_check_or_cash %>
 
     <td>
       <input
-      class="received_as_cash_or_check"
+      class="received_as_check_or_cash"
       type="text"
-      name="accounts[accounts][]account[received_as_cash_or_check]"
-      value="<%= account.received_as_cash_or_check %>">
+      name="accounts[accounts][]account[received_as_check_or_cash]"
+      value="<%= account.received_as_check_or_cash %>">
     </td>
 
     <%# logistics_agent_initials %>
@@ -75,15 +75,15 @@
       </select>
     </td>
 
-    <%# reason_details %>
+    <%# reason_detail %>
 
     <td>
       <textarea
-      class="reason_details"
-      name="accounts[accounts][]account[reason_details]"
+      class="reason_detail"
+      name="accounts[accounts][]account[reason_detail]"
       cols="20"
       rows="1"
-      ><%= account.reason_details %></textarea>
+      ><%= account.reason_detail %></textarea>
     </td>
 
     <%# accounting_completed %>

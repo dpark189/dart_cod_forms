@@ -9,8 +9,10 @@ class AccountsController < ApplicationController
     @secondary_attr = [
       "credit",
       "id",
-      "logistics_completed_date",
-      "accounting_completed_date"
+      "logistics_completed",
+      "accounting_completed",
+      "created_at",
+      "updated_at"
     ]
   end
 
@@ -67,10 +69,10 @@ class AccountsController < ApplicationController
           :id,
           :amount_received,
           :amount_credit,
-          :received_as_cash_or_check,
+          :received_as_check_or_cash,
           :logistics_agent_initials,
           :reason_code,
-          :reason_details,
+          :reason_detail,
           :credit,
           :logistics_completed,
           :accounting_completed

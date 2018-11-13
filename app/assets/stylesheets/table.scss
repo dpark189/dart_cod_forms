@@ -42,7 +42,6 @@ table, th, td {
 table {
   border: none;
   table-layout: auto;
-  align-self: center;
 }
 
 td {
@@ -115,14 +114,14 @@ td.checkbox {
   width: 69px;
 }
 
-.reason_details {
+.reason_detail {
   margin-top: 5px;
   border: none;
   background-color: inherit;
   align-self: center;
 }
 
-textarea.reason_details:focus {
+textarea.reason_detail:focus {
   background: white;
   color: #6a6f75;
   outline: none;

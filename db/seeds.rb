@@ -21,7 +21,7 @@ end
 #     customer: "CustomerName#{num}",
 #     amount_owed: rand(1..2000),
 #     amount_received: 0,
-#     received_as_cash_or_check: 0,
+#     received_as_check_or_cash: 0,
 #     logistics_agent_initials: "",
 #     location: 'nj'
 #   )

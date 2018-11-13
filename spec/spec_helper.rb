@@ -156,7 +156,7 @@ def create_test_account2
     amount_owed: rand(1..2000),
     extra: 10,
     amount_received: received,
-    received_as_cash_or_check: received,
+    received_as_check_or_cash: received,
     logistics_agent_initials: "AD",
     location: "nj"
   )

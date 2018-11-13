@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 20181105224639) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "dartaccounts", force: :cascade do |t|
     t.date "ship_date", null: false
@@ -25,10 +24,10 @@ ActiveRecord::Schema.define(version: 20181105224639) do
     t.float "extra"
     t.float "amount_received"
     t.float "amount_credit"
-    t.string "received_as_cash_or_check"
+    t.string "received_as_check_or_cash"
     t.string "logistics_agent_initials"
     t.string "reason_code"
-    t.string "reason_details"
+    t.string "reason_detail"
     t.float "credit"
     t.boolean "accounting_completed"
     t.string "location", null: false
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(version: 20181105224639) do
     t.datetime "accounting_completed_date"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "cod_users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

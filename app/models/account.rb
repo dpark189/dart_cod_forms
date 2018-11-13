@@ -12,10 +12,10 @@
 #  extra                     :integer
 #  amount_received           :integer
 #  amount_credit             :integer
-#  received_as_cash_or_check :integer
+#  received_as_check_or_cash :integer
 #  logistics_agent_initials  :string
 #  reason_code               :string
-#  reason_details            :string
+#  reason_detail            :string
 #  credit                    :integer
 #  accounting_completed      :boolean
 #  location                  :string           not null
