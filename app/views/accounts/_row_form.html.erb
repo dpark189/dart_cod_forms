@@ -87,6 +87,12 @@
       ><%= account.reason_detail %></textarea>
     </td>
 
+    <!-- location -->
+
+    <td>
+      <%= account.location.upcase %>
+    </td>
+
     <%# accounting_completed %>
 
       <% if @user_role == "accounting"%>
@@ -94,40 +100,52 @@
           <td class="checkbox">
             <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" value="true">
           </td>
+
+          <td>
+            Not Completed
+          </td>
         <% else %>
           <td class="checkbox">
             <input class="acc_completed" type="checkbox" name="accounts[accounts][]account[accounting_completed]" checked="checked" value="true" disabled>
           </td>
+          <td>
+            <%= account.accounting_completed_date %>
+          </td>
         <% end %>
       <% end %>
 
-    <td>
-      <%= account.location.upcase %>
-    </td>
 
     <% if @user_role == "accounting"%>
-      <td class="checkbox">
         <% if account.logistics_completed == true %>
-        <input
-        readonly = "readonly"
-        disabled
-        class="log_completed"
-        type="checkbox"
-        checked
-        name="accounts[accounts][]account[<%= @user_role %>_completed]"
-        value="true"
-        >
+          <td class="checkbox">
+            <input
+            readonly = "readonly"
+            disabled
+            class="log_completed"
+            type="checkbox"
+            checked
+            name="accounts[accounts][]account[<%= @user_role %>_completed]"
+            value="true"
+            >
+          </td>
+          <td>
+            <%= account.logistics_completed_date %>
+          </td>
         <% else %>
-        <input
-        readonly = "readonly"
-        disabled
-        class="log_completed"
-        type="checkbox"
-        name="accounts[accounts][]account[<%= @user_role %>_completed]"
-        value="true"
-        >
+          <td class="checkbox">
+            <input
+            readonly = "readonly"
+            disabled
+            class="log_completed"
+            type="checkbox"
+            name="accounts[accounts][]account[<%= @user_role %>_completed]"
+            value="true"
+            >
+          </td>
+          <td>
+            Not Completed
+          </td>
         <% end %>
-      </td>
     <% end %>
 
   </tr>

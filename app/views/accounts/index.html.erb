@@ -33,11 +33,24 @@
     <table>
       <tr>
         <% if !@accounts.empty? %>
-          <% @accounts.first.attributes.keys.each do |key| %>
-          <% next if @secondary_attr.include?(key) %>
-          <% next if ( key == "amount_credit" || key == "logistics_completed" || key == "logistics_completed_date" || key == "accounting_completed" || key == "accounting_completed_date" ) && current_user.role == "logistics" %>
-          <th><%= key.titleize %></th>
-          <% end %>
+          <th>Ship Date</th>
+          <th>Invoice Number</th>
+          <th>Route Number</th>
+          <th>Customer ID</th>
+          <th>Customer</th>
+          <th>Amount Owed</th>
+          <th>Extra</th>
+          <th>Amount Received</th>
+          <th>Amount Credit</th>
+          <th>Received As Check or Cash</th>
+          <th>Logistics Agent Initials</th>
+          <th>Reason code</th>
+          <th>Reason Detail</th>
+          <th>Location</th>
+          <th>Accounting Completed</th>
+          <th>Accounting Completed Date</th>
+          <th>Logistics Completed</th>
+          <th>Logistics Completed Date</th>
         <% end %>
       </tr>
         <% @accounts.each_with_index do |account, idx| %>

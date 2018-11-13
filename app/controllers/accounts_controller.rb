@@ -2,9 +2,9 @@ class AccountsController < ApplicationController
   def index
     @user_role = current_user.role
     @completed_filter = params[:completed] == "true" ? true : false
+    date = params[:account_attr][:date]
     type_completed = current_user.role == "accounting" ? "accounting_completed" : "logistics_completed"
-    @accounts = Account.where("(ship_date = ? and #{type_completed} = ? and location = ?) or #{type_completed} = ?", params[:account_attr][:date], @completed_filter, params[:account_attr][:location].downcase, @completed_filter)
-
+    @accounts = Account.where("((ship_date between ? and ?) and #{type_completed} = ? and location = ?) or #{type_completed} = ?", date, "#{date} 23:59:59", @completed_filter, params[:account_attr][:location].downcase, @completed_filter)
     @accounts = @accounts.sort_by{|account| [ (account.ship_date == params[:account_attr][:date] ? 0 : 1), account.route_number.to_i, account.route_number ] }
     @secondary_attr = [
       "credit",
