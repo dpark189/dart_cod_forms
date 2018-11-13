@@ -41,16 +41,20 @@
           <th>Amount Owed</th>
           <th>Extra</th>
           <th>Amount Received</th>
-          <th>Amount Credit</th>
+          <% if @user_role == "accounting" %>
+            <th>Amount Credit</th>
+          <% end %>
           <th>Received As Check or Cash</th>
           <th>Logistics Agent Initials</th>
           <th>Reason code</th>
           <th>Reason Detail</th>
           <th>Location</th>
-          <th>Accounting Completed</th>
-          <th>Accounting Completed Date</th>
-          <th>Logistics Completed</th>
-          <th>Logistics Completed Date</th>
+          <% if @user_role == "accounting" %>
+            <th>Accounting Completed</th>
+            <th>Accounting Completed Date</th>
+            <th>Logistics Completed</th>
+            <th>Logistics Completed Date</th>
+          <% end %>
         <% end %>
       </tr>
         <% @accounts.each_with_index do |account, idx| %>
